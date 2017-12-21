@@ -11,14 +11,13 @@ void StudentDatabase::addStudent(Student *s) {
 // print "<last_name> not found" if the student is not found.
 void StudentDatabase::printStudent(std::string last_name) {
   // TODO Implement this
-
-	if(_students.find(last_name) == _students.end())
+		if(_students.find(last_name) != _students.end())
 	{
-		printf("%s not found\n", last_name.c_str());
+		_students[last_name]->printInfo();
 	}
 
 	else
 	{
-		_students[last_name]->printInfo();
+		printf("%s not found\n", last_name.c_str());
 	}
 }
